@@ -8,7 +8,6 @@
 #
 
 # sudo knife cookbook upload hdfs-datanode
-# knife bootstrap 10.0.3.100 -j '{"masterip":"10.0.3.100"}' -x vagrant -P vagrant -r 'recipe[mesos-master-node]' --sudo
 
 include_recipe 'apt'
 
@@ -16,8 +15,9 @@ include_recipe 'apt'
 # Params
 #####
 cluster_name = 'beehive'
-master_ip = node['masterip']
+namenode_ip = node['namenode_ip']
 
+raise "namenodeip not provided. Use -j '{\"namenodeip\":\"x.x.x.x\"}'" if namenode_ip.nil?
 apt_repository 'mesosphere' do
   uri "http://repos.mesosphere.io/#{node['platform']}"
   distribution node['lsb']['codename']

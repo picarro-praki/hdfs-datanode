@@ -11,9 +11,9 @@ Attributes
 Usage
 -----
 #### hdfs-namenode::default
-knife bootstrap IP -j '{"masterip": "x.x.x.x"}' -x vagrant -P vagrant -r 'recipe[hdfs-namenode]' --sudo
+knife bootstrap IP -j '{"masterip": "x.x.x.x"}' -x vagrant -P vagrant -r 'recipe[hdfs-datanode]' --sudo
 
-A hadoop name node will be started on IP and will listen to the value specified for "masterip" at port 9000.
+A hadoop data node will be started on IP.
 
 Contributing
 ------------
